@@ -7,15 +7,18 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "turbo format",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "build:federation": "pnpm --filter=microapp-a build && pnpm --filter=microapp-b build && pnpm --filter=lumino-shell build",
+    "preview:all": "concurrently \"pnpm --filter=microapp-a preview\" \"pnpm --filter=microapp-b preview\" \"pnpm --filter=lumino-shell preview\" \"pnpm --filter=web preview\""
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "turbo": "^2.8.17",
     "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.28.2",
   "engines": {
     "node": ">=20"
   }

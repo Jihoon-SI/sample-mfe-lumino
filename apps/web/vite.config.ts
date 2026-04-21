@@ -1,14 +1,7 @@
-import path from "path"
-import tailwindcss from "@tailwindcss/vite"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
+import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
+// preview 전용 설정 — 빌드 없음, vite preview로 정적 파일 서빙
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+  build: { outDir: '.' },
+  preview: { port: 5000, cors: true },
 })
